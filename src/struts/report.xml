@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="report" namespace="/report" extends="json-default, authorized">
+	
+		<action name="dashboard" class="com.doerit.action.report.ReportAction" method="dashboard">
+			<result name="success">/WEB-INF/content/report/dashboard.jsp</result>
+		</action>
+		
+		<action name="reports-daily" class="com.doerit.action.report.ReportAction" method="dailyReport">
+			
+			<result name="success">/WEB-INF/content/report/daily.jsp</result>
+		</action>	
+		
+		<action name="reports-weekly" class="com.doerit.action.report.ReportAction" method="weeklyReport">
+			<result name="success">/WEB-INF/content/report/weekly.jsp</result>
+		</action>	
+		
+		<action name="reports-monthly" class="com.doerit.action.report.ReportAction" method="monthlyReport">
+			<result name="success">/WEB-INF/content/report/monthly.jsp</result>
+		</action>
+		
+		<action name="reports-annual" class="com.doerit.action.report.ReportAction" method="annualReport">
+			<result name="success">/WEB-INF/content/report/annual.jsp</result>
+		</action>
+		
+		<action name="report-pdf" class="com.doerit.action.report.ReportAction" method="patientReportPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>	
+		</action>
+		
+		
+	</package>
+		
+</struts>

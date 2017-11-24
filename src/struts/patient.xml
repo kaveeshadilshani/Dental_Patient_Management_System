@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient" namespace="/patient" extends="json-default, authorized">
+	
+		<action name="registration-form" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/form.jsp</result>
+		</action>
+
+		<!-- <action name="registration-form-guardian" class="com.doerit.action.patient.PatientAction" method="registrationGuardianForm">
+			<result name="success">/WEB-INF/content/patient/registration-form-guardian.jsp</result>
+		</action> -->
+		
+		<action name="registration-save" class="com.doerit.action.patient.PatientAction" method="save">
+			<result name="success">/WEB-INF/content/patient/view.jsp</result>
+			<result name="input">/WEB-INF/content/patient/form.jsp</result>
+		</action>
+		
+		<action name="edit" class="com.doerit.action.patient.PatientAction" method="edit">
+			<result name="success">/WEB-INF/content/patient/form.jsp</result>
+		</action>
+		
+		<action name="list" class="com.doerit.action.patient.PatientAction" method="viewAll">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
+		<action name="hidden-list" class="com.doerit.action.patient.PatientAction" method="viewAllHidden">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.PatientAction" method="view">
+			<result name="success">/WEB-INF/content/patient/view.jsp</result>
+		</action>
+		
+		<action name="visits" class="com.doerit.action.patient.PatientVisitAction" method="view">
+			<result name="success">/WEB-INF/content/patient/visits.jsp</result>
+		</action>
+		
+		<action name="addVisits" class="com.doerit.action.patient.PatientVisitAction" method="addVisit">
+			<result name="success">/WEB-INF/content/patient/visits.jsp</result>
+		</action>
+		
+		<action name="print" class="com.doerit.action.patient.PatientAction" method="view">
+			<result name="success">/WEB-INF/content/patient/view-print.jsp</result>
+		</action>		
+		
+		<action name="delete" class="com.doerit.action.patient.PatientAction" method="deletePermonent">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
+		<action name="hide" class="com.doerit.action.patient.PatientAction" method="deleteTemporary">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
+		<action name="search" class="com.doerit.action.patient.PatientAction" method="search">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
+		<action name="information-pdf" class="com.doerit.action.patient.PatientAction" method="patientInformationPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>		
+		</action>
+		
+		<action name="sticker-pdf" class="com.doerit.action.patient.PatientAction" method="patientStickerPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>		
+		</action>
+
+		<!--navbar-->
+
+			<action name="plaque_control" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+				<result name="success">/WEB-INF/content/patient/diagnostic/plaque_control.jsp</result>
+			</action>
+
+			<action name="dietary_history" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+				<result name="success">/WEB-INF/content/patient/diagnostic/dietary_history.jsp</result>
+			</action>
+
+		<!--nav bar end-->
+
+		<!--diagnostic-->
+		<action name="diagnostic" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/plaque_control.jsp</result>
+		</action>
+		
+	</package>
+		
+</struts>

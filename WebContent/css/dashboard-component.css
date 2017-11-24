@@ -1,0 +1,155 @@
+.mainSelect {
+	padding: 30px;
+	margin: 10px;
+	color: #fff;
+	font-size: 24px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 6px;
+}
+
+.mainSelect:hover, .mainSelect:focus, .mainSelect:active {
+	text-decoration: none;
+	background-color: #fff;
+}
+
+.blue {
+	background-color: #337AB7;
+	border:1px solid #337AB7;
+}
+
+.blue:hover, .blue:focus, .blue:active {
+	color: #337AB7;
+}
+
+.green {
+	background-color: #5CB85C;
+	border:1px solid #5CB85C;
+}
+
+.green:hover, .green:focus, .green:active {
+	color: #5CB85C;
+}
+
+.yellow {
+	background-color: #f0e624;
+	border:1px solid #5CB85C;
+}
+
+.yellow:hover, .yellow:focus, .yellow:active {
+	color: #5CB85C;
+}
+
+.btn-block {
+  padding: 10% 0; 
+}
+	
+.clientes .content-title {
+    background: #9fc943;
+}
+.concorrentes .content-title {
+    background: #ff454a;
+}
+.concorrentes .content-title img,
+.clientes .content-title img {
+    display: inline-block;
+    padding: 0px 5px;
+    margin-top: -5px;
+}
+.clientes .content-title span {
+    color: #fff;
+    margin: 0;
+    padding: 10px 0px;
+    font-size: 18px;
+    font-weight: 100;
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+}
+.concorrentes .content-title span {
+    color: #fff;
+    margin: 0;
+    padding: 10px 0px;
+    font-size: 18px;
+    font-weight: 100;
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+}
+.concorrentes,
+.clientes {
+    padding: 0;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+.concorrentes {
+    /* margin-left: 20px;
+    margin-right: 20px;
+ */}
+.concorrentes .concorrentes-content .line,
+.clientes .clientes-content .line {
+    height: 5px;
+}
+.concorrentes .concorrentes-content .line-1 {
+    height: 5px;
+    width: 70%;
+    background: #ff454a;
+    float: left;
+}
+.clientes .clientes-content .line-1 {
+    height: 5px;
+    width: 70%;
+    background: #9fc943;
+    float: left;
+}
+.concorrentes .concorrentes-content .line-2,
+.clientes .clientes-content .line-2 {
+    height: 5px;
+    width: 30%;
+    background: #2b3b48;
+    float: right;
+}
+.concorrentes .concorrentes-content .number,
+.clientes .clientes-content .number {
+    color: #6d767b;
+    font-family: 'arial', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px 0px;
+}
+.concorrentes .concorrentes-content .number span {
+    color: #ff454a;
+    font-size: 72px;
+}
+.clientes .clientes-content .number span {
+    color: #9dc93e;
+    font-size: 72px;
+}
+.concorrentes .concorrentes-content .analysis,
+.clientes .clientes-content .analysis {
+    padding: 15px 15px 10px;
+    display: inline-block;
+    width: 100%;
+}
+.concorrentes .concorrentes-content .analysis .quote,
+.clientes .clientes-content .analysis .quote {
+    color: #444444;
+    float: left;
+}
+.concorrentes .concorrentes-content .analysis .see-more,
+.clientes .clientes-content .analysis .see-more {
+    width: 25%;
+    color: #444444;
+    float: right;
+}
+.concorrentes .concorrentes-content .analysis .see-more span,
+.clientes .clientes-content .analysis .see-more span {
+    padding: 0px 3px;
+    top: 2px;
+}
+.flexRow{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}

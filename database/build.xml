@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+
+<project name="fleet" default="create database" basedir=".">
+
+	<property name="db.dir" value="."/>
+
+	<property file="../src/jdbc.properties"/>
+
+	<target name="create database" description="Creating the database">
+		<sql driver="${jdbc.driverClassName}"
+			url="jdbc:mysql://localhost:3306/?useUnicode=true&amp;characterEncoding=UTF8"
+			userid="${jdbc.username}" password="${jdbc.password}"
+			encoding="utf-8" onerror="continue">
+
+			<classpath>
+    			<pathelement location="${db.dir}/lib/mysql.jar" />
+			</classpath>
+
+			<transaction src="${db.dir}/create/database.sql"/>
+			<transaction src="${db.dir}/create/tbl_activity_logger.sql"/> 
+			<transaction src="${db.dir}/create/tbl_action.sql"/> 
+			<transaction src="${db.dir}/create/tbl_province.sql"/> 
+			<transaction src="${db.dir}/create/tbl_district.sql"/> 
+			<transaction src="${db.dir}/create/tbl_user_account.sql"/> 
+			<transaction src="${db.dir}/create/tbl_patient.sql"/> 
+			<transaction src="${db.dir}/create/tbl_patient_guardian.sql"/> 
+			<transaction src="${db.dir}/create/tbl_patient_property.sql"/> 
+			<transaction src="${db.dir}/create/tbl_employee.sql"/> 
+			<transaction src="${db.dir}/create/tbl_action_template.sql"/> 
+			<transaction src="${db.dir}/create/tbl_action_template_value.sql"/> 
+			<transaction src="${db.dir}/create/tbl_user_account_action.sql"/> 
+			<transaction src="${db.dir}/create/tbl_department.sql"/> 
+			<transaction src="${db.dir}/create/tbl_patient_visit.sql"/> 			
+			
+			<transaction src="${db.dir}/data/tbl_province.sql"/>
+			<transaction src="${db.dir}/data/tbl_district.sql"/>
+			<transaction src="${db.dir}/data/tbl_employee.sql"/> 
+			<transaction src="${db.dir}/data/tbl_user_account.sql"/> 
+			<transaction src="${db.dir}/data/tbl_department.sql"/> 
+		</sql>
+	</target>
+</project>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="document" namespace="/document" extends="json-default, authorized">
+
+		<action name="list" class="com.doerit.action.document.DocumentAction" method="list">
+			<result name="success">/WEB-INF/content/document/list.jsp</result>
+		</action>
+					
+		<action name="form" class="com.doerit.action.document.DocumentAction" method="form">
+			<result name="success">/WEB-INF/content/document/upload.jsp</result>
+		</action>
+		
+		<action name="edit" class="com.doerit.action.document.DocumentAction" method="edit">
+			<result name="success">/WEB-INF/content/document/upload.jsp</result>
+			<result name="input">/WEB-INF/content/document/list.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.document.DocumentAction" method="view">
+			<result name="success">/WEB-INF/content/document/view.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.document.DocumentAction" method="save">
+			<result name="input">/WEB-INF/content/document/upload.jsp</result>
+			<result name="success">/WEB-INF/content/document/list.jsp</result>
+		</action>
+		
+		<action name="download" class="com.doerit.action.document.DocumentAction" method="download">
+			 <result name="success" type="stream">
+                <param name="contentType">${document.contentType}</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${document.fileName}"</param>
+                <param name="contentLength">${document.contentLength}</param>
+                <param name="bufferSize">4096</param>
+            </result>
+		</action>
+		
+		<action name="delete" class="com.doerit.action.document.DocumentAction" method="delete">
+			<result name="success">/WEB-INF/content/document/list.jsp</result>
+			<result name="input">/WEB-INF/content/document/list.jsp</result>
+		</action>
+		
+		<action name="restore" class="com.doerit.action.document.DocumentAction" method="restore">
+			<result name="success">/WEB-INF/content/document/list.jsp</result>
+			<result name="input">/WEB-INF/content/document/list.jsp</result>
+		</action>
+		
+		<action name="deleted" class="com.doerit.action.document.DocumentAction" method="deleted">
+			<result name="success">/WEB-INF/content/document/list.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

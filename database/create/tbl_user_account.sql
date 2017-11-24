@@ -1,0 +1,19 @@
+CREATE TABLE `tbl_user_account` (
+  `ID` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `USER_NAME` char(128) COLLATE utf8_unicode_ci NOT NULL,
+  `USER_PASSWORD` char(128) COLLATE utf8_unicode_ci NOT NULL,
+  `NUMBER_OF_SIGN_IN_ATTEMPTS` tinyint(4) DEFAULT NULL,
+  `CATEGORY_RELATION_ID` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `RELATION_ID` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `ACTIVATE_DATETIME` datetime DEFAULT NULL,
+  `TERMINATE_DATETIME` datetime DEFAULT NULL,
+  `COMMENT` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `STATUS` tinyint(4) DEFAULT '0',
+  `SORT_ORDER` int(4) DEFAULT '1',
+  `INSERT_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `INSERT_DATETIME` datetime DEFAULT NULL,
+  `UPDATE_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UPDATE_DATETIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `USER_NAME` (`USER_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

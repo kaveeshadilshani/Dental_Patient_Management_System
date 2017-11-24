@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="com/doerit/dao/xml/ActivityLoggerMapper.xml" />		
+		<mapper resource="com/doerit/dao/xml/ActionMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/ActionTemplateMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/ActionTemplateValueMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/DistrictMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/EmployeeMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/PatientGuardianMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/PatientAdditionalPropertyMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/PatientMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/PatientVisitMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/DepartmentMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/ProvinceMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/UserAccountActionMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/UserAccountMapper.xml" />
+	</mappers>
+</configuration>

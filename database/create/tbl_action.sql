@@ -1,0 +1,15 @@
+CREATE TABLE `tbl_action` (
+  `ID` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `ACTION_NAME` char(128) COLLATE utf8_unicode_ci NOT NULL,
+  `NAME_SPACE` char(128) COLLATE utf8_unicode_ci NOT NULL,
+  `CONFIGURATION_FILE_NAME` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `COMMENT` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `STATUS` tinyint(4) DEFAULT '0',
+  `SORT_ORDER` int(10) DEFAULT '1',
+  `INSERT_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `INSERT_DATETIME` datetime DEFAULT NULL,
+  `UPDATE_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UPDATE_DATETIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ACTION_NAME` (`ACTION_NAME`,`NAME_SPACE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

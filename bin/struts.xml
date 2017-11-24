@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="dit-default" extends="struts-default" abstract="true">
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">index</param>
+			</result>
+			<result name="error" >/WEB-INF/content/common/error.jsp</result>
+			<result name="exception" >/WEB-INF/content/common/error.jsp</result>
+			<result name="SQLException">/WEB-INF/content/common/error.jsp</result>
+			<result name="sessionExpired">/WEB-INF/content/common/session-expired.jsp</result> 
+			<result name="invalid">/WEB-INF/content/common/error.jsp</result>
+		</global-results>
+ 
+			<global-exception-mappings>
+			<exception-mapping exception="java.sql.SQLException" result="SQLException" />
+			<exception-mapping exception="java.lang.Exception" result="exception" /> 
+		</global-exception-mappings>
+
+		<action name="**">
+	      <result name="success" type="redirectAction">
+	        	<param name="actionName">invalid</param>
+	         	<param name="namespace">/</param>
+	       </result>
+	    </action>
+	</package>
+
+	<package name="url-not-found" namespace="/**" extends="dit-default">
+		<action name="**">
+	      <result name="success" type="redirectAction">
+	        	<param name="actionName">invalid</param>
+	         	<param name="namespace">/</param>
+	       </result>
+	    </action>
+	</package>
+
+	<!-- authorized package -->
+	<package name="authorized" extends="dit-default">
+		<interceptors>
+		 	<interceptor name="sessionExpireInterceptor" class="com.doerit.interceptor.SessionExpireInterceptor" /> 
+
+			<interceptor-stack name="sessionCheckStack">
+				<interceptor-ref name="sessionExpireInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="guest">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+	  <default-interceptor-ref name="sessionCheckStack" />
+
+    </package>
+
+    <package name="web-default" extends="authorized" >
+
+    </package>
+
+   <package name="public" namespace="/" extends="authorized">
+		<action name="index" class="com.doerit.action.signin.SignInAction" method="index">
+			<interceptor-ref name="guest"/>
+			<result name="success">/WEB-INF/content/sign-in.jsp</result>
+		</action>
+	</package>
+	
+	<package name="serveAll" namespace="" extends="struts-default">
+        <action name="*">
+            <result>/WEB-INF/content/common/error.jsp</result>
+        </action>
+	</package>
+	
+	<package name="" namespace="/jsp" extends="struts-default">
+		<action name="dateTimePicker" class="com.doerit.action.signin.dateTimePicker" method="execute">
+		  <result name="success">/jsp/result.jsp</result>
+		</action>
+	</package>
+
+	<include file="./struts/signin.xml" />
+	<include file="./struts/dash-board.xml" />
+	<include file="./struts/patient.xml" />
+	<include file="./struts/image.xml" />
+	<include file="./struts/report.xml" />
+	<include file="./struts/patient-guardian.xml" />
+	
+</struts>
+

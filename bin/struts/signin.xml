@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="signin" namespace="/" extends="authorized">
+
+		<action name="sign-in" class="com.doerit.action.signin.SignInAction" method="signIn">
+			<interceptor-ref name="guest" />
+
+			<result name="success" type="chain">
+				<param name="actionName">dashboard</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="input">/WEB-INF/content/sign-in.jsp</result>
+		</action>
+
+
+		<action name="sign-out" class="com.doerit.action.signin.SignInAction"
+			method="signOut">
+			<interceptor-ref name="guest" />
+			<result name="success">/WEB-INF/content/sign-in.jsp</result>
+		</action>
+
+		<action name="forgotPasswordRequest" class="com.doerit.action.signin.SignInAction"
+			method="forgotPassword">
+			<!-- <interceptor-ref name="guest" /> -->
+			<result name="success">/WEB-INF/content/common/forgot-password.jsp
+			</result>
+		</action>
+
+		<action name="update-password" class="com.doerit.action.signin.SignInAction"
+			method="updatePassword">
+			<result name="input">/WEB-INF/content/common/password-change.jsp
+			</result>
+			<result name="success">/WEB-INF/content/common/password-changed-success.jsp
+			</result>
+		</action>
+
+		<action name="forgetpasswordUpdate" class="com.doerit.action.signin.SignInAction"
+			method="requestForgetPassword">
+			<!-- <interceptor-ref name="guest" /> -->
+			<result name="success">/WEB-INF/content/common/forgot-password-success.jsp
+			</result>
+			<result name="input">/WEB-INF/content/common/forgot-password.jsp
+			</result>
+		</action>
+
+		<action name="change-password" class="com.doerit.action.signin.SignInAction"
+			method="changePassword">
+			<result name="success">/WEB-INF/content/common/password-change.jsp
+			</result>
+		</action>
+
+		<action name="my-profile" class="com.doerit.action.signin.SignInAction"
+			method="myProfile">
+			<result name="success" type="chain">
+				<param name="actionName">viewMyProfile</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="input">/WEB-INF/content/sign-in.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

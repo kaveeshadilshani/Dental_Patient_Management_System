@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+
+  <classPathEntry  location="E:\DIT Projects\DIT Sampath\Eclipse Projects\DoerIT_Tracker_Srv\tracker-srv\WebContent\WEB-INF\lib\mysql-connector-java-5.1.30.jar" />
+  
+  <context id="ctx" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/tracker_db" userId="relax" password="root" />
+
+    <javaModelGenerator targetPackage="com.doerit.model" targetProject="tracker-srv">
+    	 <property name="enableSubPackages" value="true"/>
+         <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="com.doerit.dao.xml" targetProject="tracker-srv">
+        <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator targetPackage="com.doerit.dao" targetProject="tracker-srv" type="XMLMAPPER">
+        <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+  
+ 	<table tableName="mst_type" domainObjectName="Type"/>
+ 	<table tableName="tbl_accident" domainObjectName="Accident"/>
+ 	<table tableName="tbl_document" domainObjectName="Document"/>
+ 	<table tableName="tbl_location" domainObjectName="Location"/>
+ 	<table tableName="tbl_user" domainObjectName="User"/>
+ 	
+  </context>
+  
+</generatorConfiguration>
